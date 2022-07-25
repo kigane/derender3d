@@ -1,5 +1,7 @@
 import math
 
+import numpy as np
+
 from .utils import *
 
 EPS = 1e-7
@@ -35,8 +37,9 @@ class Renderer():
         K = [[fx, 0., cx],
              [0., fy, cy],
              [0., 0., 1.]]
+        inv_k = np.linalg.inv(K)
         K = torch.FloatTensor(K).to(self.device)
-        self.inv_K = torch.inverse(K).unsqueeze(0)
+        self.inv_K = torch.FloatTensor(inv_k).unsqueeze(0)
         self.K = K.unsqueeze(0)
 
     def set_transform_matrices(self, view):
