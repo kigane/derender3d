@@ -2,11 +2,11 @@
 ## trainer
 run_train: true
 num_epochs: 10
-batch_size: 12
+batch_size: 4
 checkpoint_dir: results/models/co3d
 save_checkpoint_freq: 1
 keep_num_checkpoint: 2
-resume: true
+resume: false
 use_logger: true
 log_freq: 750
 
